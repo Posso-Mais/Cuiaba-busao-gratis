@@ -59,6 +59,11 @@ class SupabaseClient {
             const cidade = this.sanitizeInput(dados.cidade) || 'Cuiabá';
             const estado = this.sanitizeInput(dados.estado) || 'MT';
             const comoConheceu = this.sanitizeInput(dados.comoConheceu);
+            const querVoluntario = dados.querVoluntario || false;
+            const aceitaComunicacao = dados.aceitaComunicacao !== false;
+            const dataCadastro = new Date().toISOString();
+            const userAgent = dados.userAgent || navigator.userAgent;
+            const ipAddress = dados.ipAddress || null; // Deve ser preenchido no frontend
 
             if (!nome || nome.length < 2) {
                 throw new Error('Nome deve ter pelo menos 2 caracteres');
@@ -68,27 +73,33 @@ class SupabaseClient {
                 throw new Error('Email inválido');
             }
 
-            // Chamar função do banco (mais seguro que insert direto)
-            const { data, error } = await this.client.rpc('inserir_apoiador', {
-                p_nome: nome,
-                p_email: email,
-                p_telefone: telefone || null,
-                p_cidade: cidade,
-                p_estado: estado,
-                p_como_conheceu: comoConheceu || null,
-                p_quer_voluntario: dados.querVoluntario || false,
-                p_aceita_comunicacao: dados.aceitaComunicacao !== false
-            });
+            // Inserir na tabela 'apoiadores'
+            const { data, error } = await this.client.from('apoiadores').insert([
+                {
+                    nome,
+                    email,
+                    telefone,
+                    cidade,
+                    estado,
+                    como_conheceu: comoConheceu,
+                    quer_voluntario: querVoluntario,
+                    aceita_comunicacao: aceitaComunicacao,
+                    data_cadastro: dataCadastro,
+                    ip_address: ipAddress,
+                    user_agent: userAgent
+                }
+            ]).select();
 
             if (error) {
                 console.error('Erro do Supabase:', error);
                 throw new Error('Erro ao registrar apoio. Tente novamente.');
             }
 
-            return data;
+            return { success: true, data };
 
         } catch (error) {
             console.error('Erro ao registrar apoiador:', error);
+            return { success: false, error: error.message };
         }
     }
 

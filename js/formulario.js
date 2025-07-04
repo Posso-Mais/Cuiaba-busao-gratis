@@ -189,8 +189,20 @@ class FormularioApoio {
                 estado: formData.get('estado'),
                 comoConheceu: formData.get('como-conheceu'),
                 querVoluntario: formData.get('quer-voluntario') === 'on',
-                aceitaComunicacao: formData.get('aceita-comunicacao') === 'on'
+                aceitaComunicacao: formData.get('aceita-comunicacao') === 'on',
+                userAgent: navigator.userAgent
             };
+
+            // Capturar IP do usuário via API externa
+            let ipAddress = null;
+            try {
+                const ipRes = await fetch('https://api.ipify.org?format=json');
+                const ipJson = await ipRes.json();
+                ipAddress = ipJson.ip;
+            } catch (err) {
+                console.warn('Não foi possível obter o IP do usuário:', err);
+            }
+            dados.ipAddress = ipAddress;
 
             // Aguardar inicialização do Supabase
             if (!window.SupabaseManager.client) {
