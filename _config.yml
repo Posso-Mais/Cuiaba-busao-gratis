@@ -1,8 +1,8 @@
 # Configuração do GitHub Pages
 title: "Tarifa Zero Cuiabá"
 description: "Movimento pela implementação da Tarifa Zero no transporte público de Cuiabá"
-baseurl: ""
-url: "https://seu-usuario.github.io"
+baseurl: "/Cuiaba-busao-gratis/"
+url: "https://github.com/Posso-Mais.github.io"
 
 # GitHub Pages settings
 plugins:
