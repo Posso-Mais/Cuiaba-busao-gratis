@@ -204,12 +204,15 @@ class FormularioApoio {
             }
             dados.ipAddress = ipAddress;
 
-            // Aguardar inicialização do Supabase
-            if (!window.SupabaseManager.client) {
-                await window.SupabaseManager.initSupabase();
-            }
-
-            const resultado = await window.SupabaseManager.registrarApoiador(dados);
+            // Enviar dados para a API Flask no Render
+            const response = await fetch('https://cuiaba-busao-gratis.onrender.com/api/registrar_apoio', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dados)
+            });
+            const resultado = await response.json();
             
             if (resultado.success) {
                 this.showMessage('success', resultado.message || 'Apoio registrado com sucesso!');
