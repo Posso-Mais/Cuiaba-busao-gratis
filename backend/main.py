@@ -5,7 +5,9 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-DATABASE_URL = os.environ.get('DATABASE_URL', 'postgresql://postgres:2cjn4@MmwARm26#@db.sbuhlzkacmkdichscklr.supabase.co:5432/postgres')
+DATABASE_URL = os.environ.get('DATABASE_URL')
+if not DATABASE_URL:
+    raise RuntimeError('A variável de ambiente DATABASE_URL não está definida.')
 
 @app.route("/")
 def hello_world():
