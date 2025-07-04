@@ -76,7 +76,7 @@ Cuiaba-busao-gratis/
 
 ## Como Acessar
 
-O site está disponível em: [https://seu-usuario.github.io/Cuiaba-busao-gratis/](https://seu-usuario.github.io/Cuiaba-busao-gratis/)
+O site está disponível em: [https://posso-mais.github.io/Cuiaba-busao-gratis/](https://posso-mais.github.io/Cuiaba-busao-gratis/)
 
 ## Licença
 
