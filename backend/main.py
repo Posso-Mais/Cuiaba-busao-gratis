@@ -3,13 +3,23 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import psycopg2
 from datetime import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
+
+USER = os.getenv("user")
+PASSWORD = os.getenv("password")
+HOST = os.getenv("host")
+PORT = os.getenv("port")
+DBNAME = os.getenv("dbname")
+
+if not all([USER, PASSWORD, HOST, PORT, DBNAME]):
+    raise RuntimeError('Variáveis de ambiente do banco não estão definidas corretamente.')
+
+DATABASE_URL = f"postgresql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DBNAME}"
 
 app = Flask(__name__)
 CORS(app, origins=["https://posso-mais.github.io"])
-
-DATABASE_URL = os.environ.get('DATABASE_URL')
-if not DATABASE_URL:
-    raise RuntimeError('A variável de ambiente DATABASE_URL não está definida.')
 
 @app.route("/")
 def hello_world():
