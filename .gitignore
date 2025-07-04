@@ -144,3 +144,4 @@ doc/
 *.env.local
 DEPLOY.md
 README.pdf
+backend/env
