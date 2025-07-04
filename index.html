@@ -1,22 +1,131 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meu Projeto</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tarifa Zero em Cuiabá</title>
   <style>
     body {
-      font-family: sans-serif;
-      text-align: center;
-      margin-top: 50px;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #008542 50%, #ffffff 50%);
+      color: #000;
     }
-    h1 {
+
+    header {
+      background-color: #ffcc00;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-bottom: 5px solid #008542;
+    }
+
+    header img {
+      width: 100px;
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #008542;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
       color: #333;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    main {
+      padding: 2rem;
+      background-color: #ffffff;
+      color: #000;
+    }
+
+    section {
+      margin-bottom: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    section h2 {
+      color: #008542;
+    }
+
+    .cta {
+      text-align: center;
+      margin: 3rem auto;
+    }
+
+    .cta button {
+      background-color: #008542;
+      color: #fff;
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .cta button:hover {
+      background-color: #006732;
+    }
+
+    footer {
+      background-color: #008542;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        background: #ffffff;
+      }
+
+      header {
+        border-bottom: none;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Bem-vindo ao Meu Projeto</h1>
-  <p>Essa é a landing page do meu projeto hospedado no GitHub Pages!</p>
+
+<header>
+  <img src="6b87117a-7375-49bd-a8e2-2aa4b6006ea2.png" alt="Bandeira de Cuiabá">
+  <h1>Tarifa Zero em Cuiabá</h1>
+  <p>Vamos juntos construir uma cidade mais justa, acessível e sustentável para todos!</p>
+</header>
+
+<main>
+  <section>
+    <h2>Por que Tarifa Zero?</h2>
+    <p>A proposta transforma o transporte público em um direito social garantido, promovendo a inclusão e a igualdade no acesso à cidade. Ela reduz a poluição, incentiva o comércio local e melhora a qualidade de vida.</p>
+  </section>
+
+  <section>
+    <h2>Benefícios para Cuiabá</h2>
+    <ul>
+      <li><strong>Inclusão Social:</strong> Mais acesso ao trabalho, saúde e educação.</li>
+      <li><strong>Geração de Empregos:</strong> Mais de 2.000 novos postos de trabalho diretos.</li>
+      <li><strong>Economia Local:</strong> Aumento no consumo e na arrecadação do comércio.</li>
+      <li><strong>Impacto Ambiental:</strong> Menos carros, menos emissão de poluentes.</li>
+    </ul>
+  </section>
+
+  <section class="cta">
+    <h2>Junte-se à Mobilização!</h2>
+    <p>Assine nosso manifesto e fortaleça essa mudança histórica para nossa cidade.</p>
+    <button onclick="window.location.href='https://forms.gle/manifesto-cuiaba'">Apoie a Tarifa Zero</button>
+  </section>
+</main>
+
+<footer>
+  <p>Movimento Tarifa Zero Cuiabá - Todos os direitos reservados © 2025</p>
+</footer>
+
 </body>
 </html>
