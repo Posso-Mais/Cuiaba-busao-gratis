@@ -144,3 +144,5 @@ doc/
 *.env.local
 DEPLOY.md
 README.pdf
+docs/*.pdf
+docs/"Ônibus Gratuito em Cuiabá_.pdf"
